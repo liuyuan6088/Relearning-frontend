@@ -5,19 +5,9 @@
 // compose
 // 合成多个函数，react-redux里使用compose用于争强store，依次执行各个插件
 
-function curry(fn, args = []) {
-  return function(){
-      let rest = [...args, ...arguments];
-      if (rest.length < fn.length) {
-          return curry.call(this,fn,rest);
-      }else{
-          return fn.apply(this,rest);
-      }
-  }
-}
 const curry = (fn, args = []) => {
-  return (...rest) => {
-    const params = [...args, ...rest];
+  return function() {
+    const params = [...args, ...arguments];
     return params.length < fn.length ? curry.call(this,fn,params) : fn.apply(this,rest);
   }
 }
