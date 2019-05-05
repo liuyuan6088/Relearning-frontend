@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import Hooks from './page/hooks';
+import Hooks1 from './page/hooks/test1';
+
 import './App.css';
+
+export const stateContext = React.createContext("default");
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <stateContext.Provider
+      value='hahaha'
+    >
+      <div className="App">
+        <header className="App-header">
+          <Hooks />
+          <Hooks1 />
+        </header>
+      </div>
+    </stateContext.Provider>
   );
 }
 
