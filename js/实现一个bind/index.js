@@ -20,7 +20,7 @@ textFn(); // 1, []
 hasFn = obj => {
   const random = `fn_${Math.random()}`;
   if (obj.hasOwnProperty(random)) {
-      return mySymbol(obj)
+      return hasFn(obj)
   } else {
       return random
   }

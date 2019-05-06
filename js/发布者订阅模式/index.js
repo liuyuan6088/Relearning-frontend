@@ -27,7 +27,7 @@ class Observes {
       throw new Error('错误参数')
     }
     if (!fn) this.list[type] = [];
-    this.list[type].filter(e => e !== fn);
+    this.list[type] = this.list[type].filter(e => e !== fn);
   }
 }
 
