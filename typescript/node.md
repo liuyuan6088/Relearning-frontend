@@ -105,9 +105,17 @@ type T = NonNullable<string | string[] | null | undefined>; // string | string[]
 type T1 = ReturnType<() => string>; // string
 type T2 = ReturnType<(s: string) => void>; // void
 
+// 在TypeScript / JSX中向现有HTML元素添加属性？
+declare module 'react' {
+  interface HTMLAttributes<T> {
+    readonly foo?: 'bar' | 'baz';
+  }
+}
 
-
-
+// typeof
+export const tuple = <T extends string[]>(...args: T) => args;
+const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 
 
